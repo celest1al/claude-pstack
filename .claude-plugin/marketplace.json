@@ -1,0 +1,14 @@
+{
+  "name": "pstack-marketplace",
+  "description": "pstack for Claude Code: rigorous agent workflows you can parallelize with confidence.",
+  "owner": {
+    "name": "Fauzan Rindra"
+  },
+  "plugins": [
+    {
+      "name": "pstack",
+      "source": "./",
+      "description": "Claude Code port of cursor/plugins pstack by Lauren Tan."
+    }
+  ]
+}
