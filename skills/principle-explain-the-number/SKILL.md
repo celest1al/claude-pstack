@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Explain the Number
 
-pstack skills are user-invocable only, so the Skill tool refuses them. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), Read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` and follow it. Never call the Skill tool for a pstack skill.
+pstack skills are user-invocable only. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), read `../<name>/SKILL.md` relative to this skill's directory and follow it. Under Claude Code that file is `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`, and the Skill tool refuses pstack skills, so never call it for one.
 
 - **Ask "why not double?"** Name the resource or code path that bounds the result, such as a core, a lock, the disk, the network, or the load generator itself. Get it from a profile or from system counters taken during a run, then map it to source. A guess from reading the code is not a limiter. If you cannot say why the number is not twice as good, you do not know what you measured.
 - **List what else the number could be measuring, and rule out each one with evidence.** The usual suspects are errors, skipped or cached work, code that never ran, an untuned side (one left on default settings), noise, and a piece too small to matter end to end.

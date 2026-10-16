@@ -5,7 +5,9 @@ description: Configure which models pstack uses per role and at what reasoning b
 
 # Setup pstack
 
-pstack skills are user-invocable only, so the Skill tool refuses them. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), Read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` and follow it. Never call the Skill tool for a pstack skill.
+pstack skills are user-invocable only. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), read `../<name>/SKILL.md` relative to this skill's directory and follow it. Under Claude Code that file is `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`, and the Skill tool refuses pstack skills, so never call it for one.
+
+Outside Claude Code, map every agent, tool, and parameter below with `../poteto-mode/references/harnesses.md`.
 
 Write `~/.claude/rules/pstack-models.md`, a user-level rule that Claude Code loads into every session and that sets pstack's model and effort per role.
 

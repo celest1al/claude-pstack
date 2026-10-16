@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Minimize Reader Load
 
-pstack skills are user-invocable only, so the Skill tool refuses them. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), Read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` and follow it. Never call the Skill tool for a pstack skill.
+pstack skills are user-invocable only. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), read `../<name>/SKILL.md` relative to this skill's directory and follow it. Under Claude Code that file is `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`, and the Skill tool refuses pstack skills, so never call it for one.
 
 Maintainability is the work a reader must do to understand code. Track two axes: **layers to trace** (indirections between the question and the answer) and **state to hold** (hidden or mutable context the reader must keep in their head). LOC, cyclomatic complexity, and "clean architecture" are proxies. Reader load is the thing that matters. The two axes are independent. A flat file with 50 globals can be as hard to reason about as a 6-layer adapter stack. Guard both. This is the human analog of [Guard the Context Window](../principle-guard-the-context-window/SKILL.md). Working memory is finite for readers too.
 

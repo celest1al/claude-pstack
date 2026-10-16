@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Ketchup
 
-pstack skills are user-invocable only, so the Skill tool refuses them. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), Read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` and follow it. Never call the Skill tool for a pstack skill.
+pstack skills are user-invocable only. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), read `../<name>/SKILL.md` relative to this skill's directory and follow it. Under Claude Code that file is `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`, and the Skill tool refuses pstack skills, so never call it for one.
 
 Catch the user up on what changed in this chat since the last message they wrote before `/ketchup`, and help them understand each change, not only where it stands. Notifications and subagent results are not their messages. Assume the user remembers their last message and nothing after it.
 

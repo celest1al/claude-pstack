@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Create a verification skill
 
-pstack skills are user-invocable only, so the Skill tool refuses them. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), Read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` and follow it. Never call the Skill tool for a pstack skill.
+pstack skills are user-invocable only. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), read `../<name>/SKILL.md` relative to this skill's directory and follow it. Under Claude Code that file is `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`, and the Skill tool refuses pstack skills, so never call it for one.
 
 Every serious project needs a scripted way to drive the real app and prove behavior: launch it, exercise a feature the way a user would, and capture evidence. This skill generates that as a project-local skill (`.claude/skills/verify-<app>/`) tailored to the repo. You write the generator's output for the next agent, not for a human: it will be read cold, mid-task, by an agent that has never seen the app.
 

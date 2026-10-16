@@ -67,3 +67,7 @@ Claude Code derives the slash command from the directory, and plugin skills are 
 ## Loading sibling skills
 
 Upstream marks every skill except `setup-pstack` with `disable-model-invocation: true`, so nothing fires unless the user calls it. The port keeps that. In Claude Code this also makes the Skill tool refuse those skills when the model calls them, which would break routing such as poteto-mode's "→ the **how** skill". Every skill or agent that routes to a sibling therefore carries one line telling the model to Read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` instead of calling the Skill tool. Add that line to any upstream skill that starts routing to a sibling.
+
+## Other harnesses
+
+`install.py` installs the skills into `~/.agents/skills`, which Codex, OpenCode, Amp, and Gemini CLI all read, and converts `agents/*.md` per harness. It writes Codex TOML (`~/.codex/agents`), OpenCode Markdown with `mode: subagent` (`~/.config/opencode/agents`), and Gemini CLI Markdown (`~/.gemini/agents`). When converting, it replaces `${CLAUDE_PLUGIN_ROOT}` with the checkout path and renames `pstack:<agent>` to `pstack-<agent>`. `skills/poteto-mode/references/harnesses.md` maps Claude Code tools and parameters for the model at run time. Keep both in step when an upstream sync adds an agent or a new Agent parameter.

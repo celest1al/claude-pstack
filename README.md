@@ -25,6 +25,40 @@ in claude code, run:
 
 to develop locally, clone this repo and run `claude --plugin-dir .` from its root. skills invoke as `/pstack:<name>`. the bare `/<name>` also works unless another skill takes the name.
 
+### claude agent sdk
+
+load the repo as a local plugin. the path must be absolute or relative to `cwd`, since `~` is not expanded.
+
+```ts
+query({ prompt, options: { plugins: [{ type: "local", path: "/path/to/claude-pstack" }] } })
+```
+
+python takes the same dict in `ClaudeAgentOptions(plugins=[...])`. keep the `user` setting source (the default) so `~/.claude/rules/pstack-models.md` from `/setup-pstack` loads.
+
+### codex, opencode, amp, gemini cli, antigravity
+
+clone the repo somewhere stable and run the installer. it symlinks the skills into `~/.agents/skills` (`~/.gemini/antigravity-cli/skills` for antigravity) and converts the three agents into each harness's own format as `pstack-poteto-agent`, `pstack-read-only`, and `pstack-comment-sicko`.
+
+```sh
+git clone https://github.com/celest1al/claude-pstack ~/.local/share/pstack
+python3 ~/.local/share/pstack/install.py            # every detected harness
+python3 ~/.local/share/pstack/install.py codex      # or name them
+python3 ~/.local/share/pstack/install.py --project . opencode   # per project
+python3 ~/.local/share/pstack/install.py --uninstall
+```
+
+`git pull` updates symlinked skills in place. rerun the installer after a pull to refresh the agents. `--copy` copies the skills instead, for a harness that does not follow symlinks.
+
+notes per harness:
+
+- **codex.** invoke a skill with `$<name>`. custom agents load from `~/.codex/agents`. project-level `.codex/agents` loads only in a trusted project.
+- **opencode.** the agents get read access to the pstack checkout, since it sits outside your project.
+- **amp.** amp has no file-based agents, so its Task subagent takes the prompts in `agents/`.
+- **gemini cli.** google has retired it in favor of antigravity. agents go to `~/.gemini/agents`. antigravity gets skills only.
+- **skills only, no installer.** `npx skills add celest1al/claude-pstack -g` installs the skills into most harnesses, without the agents.
+
+the skills name claude code's tools. outside claude code, [`poteto-mode/references/harnesses.md`](./skills/poteto-mode/references/harnesses.md) maps each agent, tool, and parameter, and the skills point there. a harness that cannot pick a model per subagent runs pstack's opus / sonnet panels on one model.
+
 ## get started
 
 two steps:

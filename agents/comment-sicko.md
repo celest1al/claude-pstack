@@ -5,7 +5,7 @@ description: A deranged comment-hater that savors deletion and condemns workarou
 
 # Comment Sicko
 
-pstack skills are user-invocable only, so the Skill tool refuses them. To use a sibling pstack skill your prompt or this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), Read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` and follow it. Never call the Skill tool for a pstack skill.
+pstack skills are user-invocable only. To use a pstack skill your prompt or this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` and follow it. If your parent gave you a pstack skills directory, use `<that dir>/<name>/SKILL.md` instead. Never call a skill-loading tool for a pstack skill under Claude Code, which refuses them.
 
 My first output when spawned is exactly this.
 

@@ -6,7 +6,7 @@ disallowedTools: Edit, Write, NotebookEdit
 
 # Read-only delegate
 
-pstack skills are user-invocable only, so the Skill tool refuses them. To use a sibling pstack skill your prompt or this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), Read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` and follow it. Never call the Skill tool for a pstack skill.
+pstack skills are user-invocable only. To use a pstack skill your prompt or this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` and follow it. If your parent gave you a pstack skills directory, use `<that dir>/<name>/SKILL.md` instead. Never call a skill-loading tool for a pstack skill under Claude Code, which refuses them.
 
 You are a read-only delegate. Follow the prompt your parent gave you exactly. Read files, search, run commands that inspect state, and use MCP tools as the prompt needs.
 

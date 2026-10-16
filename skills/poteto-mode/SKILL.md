@@ -6,9 +6,11 @@ disable-model-invocation: true
 
 # Poteto mode
 
-pstack skills are user-invocable only, so the Skill tool refuses them. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), Read `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md` and follow it. Never call the Skill tool for a pstack skill.
+pstack skills are user-invocable only. To use a sibling pstack skill this file names (the **<name>** skill, `/<name>`, or `/pstack:<name>`), read `../<name>/SKILL.md` relative to this skill's directory and follow it. Under Claude Code that file is `${CLAUDE_PLUGIN_ROOT}/skills/<name>/SKILL.md`, and the Skill tool refuses pstack skills, so never call it for one.
 
-Bundled skills live at `../<name>/SKILL.md` from this file, so put this file's absolute path (`${CLAUDE_PLUGIN_ROOT}/skills/poteto-mode/SKILL.md`) in every `pstack:poteto-agent` prompt.
+Bundled skills live at `../<name>/SKILL.md` from this file, so put this file's absolute path in every `pstack:poteto-agent` prompt. Under Claude Code that path is `${CLAUDE_PLUGIN_ROOT}/skills/poteto-mode/SKILL.md`.
+
+Outside Claude Code (Codex, OpenCode, Gemini CLI, Amp), read `references/harnesses.md` first and map every agent, tool, and parameter this file and its playbooks name.
 
 ## Non-negotiables
 
